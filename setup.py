@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
 		'first_node = super_tatiana_study_pkg.first_node:main',
+		'time_printer = super_tatiana_study_pkg.time_printer:main',
         ],
     },
 )
