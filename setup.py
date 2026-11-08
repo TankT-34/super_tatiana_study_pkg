@@ -26,6 +26,8 @@ setup(
         'console_scripts': [
 		'first_node = super_tatiana_study_pkg.first_node:main',
 		'time_printer = super_tatiana_study_pkg.time_printer:main',
+		'even_publisher = super_tatiana_study_pkg.even_number_publisher:main',
+		'overflow_listener = super_tatiana_study_pkg.overflow_listener:main',
         ],
     },
 )
