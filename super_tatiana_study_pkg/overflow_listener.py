@@ -6,9 +6,14 @@ from std_msgs.msg import Int32
 class OverflowListener(Node):
 	def __init__(self):
 		super().__init__('overflow_listener')
-		self.subscription = self.create_subscription(Int32, 'overflow', self.listener_callback, 10)
+
+		self.declare_parameter('overflow_topic', 'overflow')
+		self.overflow_topic = self.get_parameter('overflow_topic').value
+
+		self.subscription = self.create_subscription(Int32, self.overflow_topic, self.listener_callback, 10)
+		self.get_logger().info("SLUSHATEL PEREPOLNENIYA ZAPUSHEN...")
 	def listener_callback(self, msg):
-		self.get_logger().warn(f'!!!PEREPOLNENIE!!! Polucheno znachenie: {msg.data}')
+		self.get_logger().warn(f'!!!PEREPOLNENIE POLUCHENO ZNACHENIE: {msg.data}')
 
 def main(args = None):
 	rclpy.init(args = args)
